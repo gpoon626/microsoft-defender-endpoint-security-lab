@@ -1,16 +1,17 @@
 # Microsoft Defender Endpoint Security Lab
 
-> Repository Status: Active
+> Repository Status: Complete
 
-This repository documents hands-on Microsoft Defender for Endpoint case studies completed in an authorized lab environment. The project focuses on endpoint security posture, configuration-risk assessment, vulnerability analysis, remediation prioritization, alert investigation, and endpoint response decisions.
+This repository documents hands-on Microsoft Defender for Endpoint case studies completed in an authorized lab environment. The project covers endpoint security posture, vulnerability prioritization, controlled detection testing, alert investigation, containment decisions, and organization-wide security reporting.
 
 ## Case Studies
 
 | Case study                                                                                                                                  | Status   |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | [Endpoint Security Posture and Vulnerability Prioritization](case-studies/01-endpoint-security-posture-and-vulnerability-prioritization.md) | Complete |
+| [Defender Alert Investigation and Endpoint Containment](case-studies/02-defender-alert-investigation-and-containment.md)                    | Complete |
 
-## Current Case Study
+## Case Study Highlights
 
 ### Endpoint Security Posture and Vulnerability Prioritization
 
@@ -18,47 +19,51 @@ A Microsoft Defender for Endpoint assessment was conducted against the Windows 1
 
 The assessment identified 58 active security recommendations and 94 vulnerability records. Further investigation focused on an LDAP client-signing configuration weakness and two Critical Microsoft Edge vulnerabilities.
 
-The case study demonstrates how configuration risk, CVSS severity, exposure, exploitation indicators, affected software, and available remediation should be considered together when prioritizing endpoint-security work.
+The case study demonstrates how configuration risk, CVSS severity, exposure, exploitation indicators, affected software, and available remediation can be considered together when prioritizing endpoint-security work.
 
 [Read the complete case study](case-studies/01-endpoint-security-posture-and-vulnerability-prioritization.md)
 
+### Defender Alert Investigation and Endpoint Containment
+
+A controlled PowerShell test was performed to validate Microsoft Defender Antivirus and Microsoft Defender for Endpoint reporting.
+
+Defender blocked and removed the test behavior locally, created a centralized alert, and provided the associated PowerShell process tree for investigation. The device’s risk, exposure, and available response actions were reviewed before determining that isolation was not necessary for the known controlled activity.
+
+The investigation also used the Unified security summary to compare the endpoint alert with the organization-wide security posture of the authorized lab tenant.
+
+[Read the complete case study](case-studies/02-defender-alert-investigation-and-containment.md)
+
 ## Key Findings
 
-* LDAP client signing was not required on the assessed endpoint.
-* Defender identified one applicable device as exposed to the LDAP configuration weakness.
+* Defender identified an LDAP client-signing configuration weakness affecting the lab endpoint.
 * Defender reported 94 vulnerability records associated with the device.
 * Two reviewed Microsoft Edge vulnerabilities were rated Critical with CVSS scores of `9`.
 * The installed Microsoft Edge version was below the version recommended by Defender.
-* No public exploitation, verified exploitation, or available exploit kits were identified for the prioritized vulnerability at the time of review.
-* The assessment produced remediation recommendations without deploying configuration changes.
-
-## Planned Case Study
-
-The next case study will examine Defender alert investigation and endpoint-containment decisions using controlled activity from the authorized lab environment.
-
-It may include:
-
-* Establishing a no-alert baseline
-* Generating and reviewing a safe Defender test detection
-* Investigating suspicious-process evidence
-* Evaluating device-isolation options
-* Reviewing organization-wide Defender security reporting
-
-The case study will be published after its evidence and findings have been reviewed.
+* A controlled PowerShell test was blocked and removed by Microsoft Defender Antivirus.
+* The local detection successfully generated a centralized Defender alert.
+* The alert process tree connected the detection to the expected PowerShell activity.
+* The device remained Low risk with Medium exposure after the controlled test.
+* Device isolation and several other response actions were unavailable in the current session.
+* The Unified security summary provided organization-wide posture and protection information for the lab tenant.
 
 ## Technologies and Concepts
 
 * Microsoft Defender for Endpoint
 * Microsoft Defender Vulnerability Management
+* Microsoft Defender Antivirus
 * Microsoft Defender portal
+* Windows Security
 * Windows 11
 * Microsoft Edge
 * Endpoint security recommendations
-* Configuration-risk assessment
+* Vulnerability assessment
 * CVSS severity analysis
-* Vulnerability prioritization
-* Exposure assessment
-* Remediation planning
+* Alert triage
+* Process-tree investigation
+* Endpoint risk and exposure
+* Containment decision-making
+* Secure Score
+* Organization-wide security reporting
 
 ## Repository Structure
 
@@ -66,26 +71,24 @@ The case study will be published after its evidence and findings have been revie
 microsoft-defender-endpoint-security-lab/
 ├── README.md
 ├── case-studies/
-│   └── 01-endpoint-security-posture-and-vulnerability-prioritization.md
+│   ├── 01-endpoint-security-posture-and-vulnerability-prioritization.md
+│   └── 02-defender-alert-investigation-and-containment.md
 └── evidence/
-    └── endpoint-security-posture/
+    ├── endpoint-security-posture/
+    │   ├── README.md
+    │   └── Supporting screenshots
+    └── defender-alert-investigation/
         ├── README.md
-        ├── 01-defender-device-security-posture.png
-        ├── 02-active-security-recommendations.png
-        ├── 03-ldap-client-signing-risk-details.png
-        ├── 04-ldap-client-signing-remediation-options.png
-        ├── 05-ldap-client-signing-exposed-device.png
-        ├── 06-discovered-vulnerabilities-overview.png
-        ├── 07-cve-2026-95329-vulnerability-details.png
-        ├── 08-cve-2026-95322-vulnerability-details.png
-        ├── 09-prioritized-cve-threat-insights.png
-        └── 10-edge-update-security-recommendation.png
+        ├── Supporting screenshots
+        └── Unified security summary report
 ```
 
 ## Scope and Ethics
 
 * All activities were performed in an authorized lab environment.
+* The Defender detection was intentionally generated as a controlled test.
 * No production endpoints or user devices were affected.
-* The completed assessment did not deploy the reviewed remediation settings.
+* The reviewed configuration-remediation settings were not deployed.
+* No device-isolation action was performed.
 * Findings represent the endpoint and Defender data available when the evidence was collected.
-* Security recommendations should be tested and evaluated for operational impact before deployment.
+* Security recommendations and response actions should be evaluated for operational impact before deployment.
