@@ -6,7 +6,6 @@ The investigation followed the activity from local detection through alert revie
 
 ## Related Baseline Evidence
 
-**Timestamp:** September 24, 2026 at 4:09:57 PM
 
 ![Defender no-alert baseline](../endpoint-security-posture/01-defender-device-security-posture.png)
 
@@ -14,7 +13,6 @@ Before the controlled test, the `win11-lab` device overview reported no active a
 
 ## Screenshot 1: Controlled Defender Test and Local Block
 
-**Timestamp:** September 26, 2026 at 2:27:19 PM
 
 ![Controlled Defender test and local block](01-controlled-defender-test-and-local-block.png)
 
@@ -24,7 +22,6 @@ The activity was intentionally generated in the authorized lab to validate Defen
 
 ## Screenshot 2: Defender Alert Queue
 
-**Timestamp:** September 26, 2026 at 2:28:16 PM
 
 ![Defender alert queue test detection](02-defender-alert-queue-test-detection.png)
 
@@ -42,7 +39,6 @@ This confirmed that the locally blocked activity was reported to the centralized
 
 ## Screenshot 3: Alert Process Tree
 
-**Timestamp:** September 26, 2026 at 2:30:29 PM
 
 ![Defender alert process tree](03-defender-alert-process-tree.png)
 
@@ -54,7 +50,6 @@ The process tree connected the endpoint activity to the centralized alert and pr
 
 ## Screenshot 4: Investigation and Containment Guidance
 
-**Timestamp:** September 26, 2026 at 2:30:52 PM
 
 ![Alert investigation and containment guidance](04-alert-investigation-and-containment-guidance.png)
 
@@ -72,7 +67,6 @@ The alert-specific containment section stated that no recommended actions were f
 
 ## Screenshot 5: Device Risk and Exposure Status
 
-**Timestamp:** September 26, 2026 at 2:43:09 PM
 
 ![Device inventory risk and exposure status](05-device-inventory-risk-and-exposure-status.png)
 
@@ -89,7 +83,6 @@ This provided additional context for deciding whether stronger containment was j
 
 ## Screenshot 6: Device-Isolation Action Unavailable
 
-**Timestamp:** September 26, 2026 at 2:45:24 PM
 
 ![Device-isolation action unavailable](06-device-isolation-action-unavailable.png)
 
@@ -101,7 +94,6 @@ Because the activity was a controlled test, Defender had blocked the behavior, a
 
 ## Screenshot 7: Unified Security Summary Selection
 
-**Timestamp:** September 26, 2026 at 3:51:15 PM
 
 ![Unified security summary report selection](07-unified-security-summary-report-selection.png)
 
@@ -109,7 +101,6 @@ The Defender Reports page was reviewed, and **Unified security summary** was sel
 
 ## Screenshot 8: Organization-Wide Security Posture Summary
 
-**Timestamp:** September 26, 2026 at 3:52:10 PM
 
 ![Organization-wide security posture summary](08-organization-wide-security-posture-summary.png)
 
@@ -127,8 +118,6 @@ The visible posture summary showed:
 This report represented the tenant’s organization-wide security posture rather than only the state of `win11-lab`.
 
 ## PDF 9: Complete Unified Security Summary
-
-**Report timestamp:** September 26, 2026 at 3:49:46 PM
 
 [View the complete organization-wide Unified security summary](09-organization-wide-unified-security-summary.pdf)
 
